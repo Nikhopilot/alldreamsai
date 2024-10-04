@@ -60,10 +60,9 @@ export default function WorkspaceLayout({ children }: WorkspaceLayoutProps) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       try {
         const session = (await supabase.auth.getSession()).data.session
-
         if (!session) {
           return router.push("/login")
         } else {
@@ -76,21 +75,25 @@ export default function WorkspaceLayout({ children }: WorkspaceLayoutProps) {
   }, [])
 
   useEffect(() => {
-    ;(async () => {
-      await fetchWorkspaceData(workspaceId)
+    (async () => {
+      try {
+        await fetchWorkspaceData(workspaceId)
 
-      setUserInput("")
-      setChatMessages([])
-      setSelectedChat(null)
+        setUserInput("")
+        setChatMessages([])
+        setSelectedChat(null)
 
-      setIsGenerating(false)
-      setFirstTokenReceived(false)
+        setIsGenerating(false)
+        setFirstTokenReceived(false)
 
-      setChatFiles([])
-      setChatImages([])
-      setNewMessageFiles([])
-      setNewMessageImages([])
-      setShowFilesDisplay(false)
+        setChatFiles([])
+        setChatImages([])
+        setNewMessageFiles([])
+        setNewMessageImages([])
+        setShowFilesDisplay(false)
+      } catch (error) {
+        console.error("Error during workspace data fetch:", error)
+      }
     })()
   }, [workspaceId])
 
@@ -187,6 +190,9 @@ export default function WorkspaceLayout({ children }: WorkspaceLayoutProps) {
   if (loading) {
     return <Loading />
   }
+
+  return <Dashboard>{children}</Dashboard>
+}
 
   return <Dashboard>{children}</Dashboard>
 }
