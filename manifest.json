@@ -1,0 +1,35 @@
+{
+    "name": "ALL Dreams Cambodia AI",
+    "short_name": "ADC AI",
+    "description": "An intelligent assistant powered by AI for All Dreams Cambodia, designed to enhance user experience and provide personalized insights.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#00796b",
+    "orientation": "portrait",
+    "scope": "/",
+    "icons": [
+      {
+        "src": "/icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/icon-1024x1024.png",
+        "sizes": "1024x1024",
+        "type": "image/png"
+      }
+    ],
+    "lang": "en-US",
+    "dir": "ltr",
+    "orientation": "portrait",
+    "theme_color": "#00796b",
+    "background_color": "#ffffff",
+    "related_applications": [],
+    "prefer_related_applications": false
+}
